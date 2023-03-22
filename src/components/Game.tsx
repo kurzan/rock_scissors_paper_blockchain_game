@@ -4,13 +4,13 @@ import { useEffect, useState } from 'react';
 const Game = () => {
 
   const [choiceState, setChoice] = useState({
-    choiceNumber: 0,
+    choice: "Камень",
     bet: 0
   });
   
-  const handleChoice = (choiceNumber: any) => {
+  const handleChoice = (userChoice: any, userBet: any = 0.0001) => {
     setChoice((prevState) => ({
-      ...prevState, choiceNumber: choiceNumber
+      ...prevState, choice: userChoice, bet: userBet
     }));
   };
 
@@ -21,7 +21,15 @@ const Game = () => {
         <h1 className="text-3xl font-semibold">Начнем игру?</h1>
         <p>Выберите ход и сделайте ставку</p>
         <ChooseGame onClick={handleChoice} choiceState={choiceState} />
-        <h1 className="text-3xl font-semibold">Ваш выбор: </h1>
+        <h1 className="text-3xl font-semibold">Ваш выбор: {choiceState.choice} </h1>
+
+        <form action="" className="mx-auto flex flex-col justify-items-center ">
+          <label className="mt-4" htmlFor="bet" >Ставка: </label>
+          <input id="bet" className="mx-auto p-2 rounded-lg border-solid border-2 border-gray-600" type="number" placeholder="0.0001" min="0.0001" step="0.0001"  />
+          <button className="mx-auto py-2 px-4 mt-4 rounded-lg bg-indigo-600 text-white">Начать игру</button>
+        </form>
+
+
       </div>
     </main>
   )
