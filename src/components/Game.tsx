@@ -1,6 +1,9 @@
 import ChooseGame from "./ChooseGame";
 import { useEffect, useState } from 'react';
 
+
+import { useBalance } from 'wagmi'
+
 const Game = () => {
 
   const [choiceState, setChoice] = useState({
@@ -16,7 +19,7 @@ const Game = () => {
 
 
   return(
-    <main className="bg-neutral-50 min-h-min pt-6" >
+    <main className="bg-neutral-50 min-h-min pt-6 px-2" >
       <div className="container mx-auto text-center">
         <h1 className="text-3xl font-semibold">Начнем игру?</h1>
         <p>Выберите ход и сделайте ставку</p>
