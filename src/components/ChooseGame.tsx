@@ -6,17 +6,17 @@ import { FC, useEffect, useState } from 'react';
 const choices = [
   {
     name: "Камень",
-    number: 0,
+    number: 1,
     image: rockImage
   },
   {
     name: "Ножницы",
-    number: 1,
+    number: 2,
     image: scirImage
   },
   {
     name: "Бумага",
-    number: 2,
+    number: 3,
     image: papperImage
   }
 ];
@@ -36,11 +36,11 @@ const ChooseGame: FC<TChooseGame> = ({onClick, choiceState}) => {
   return(
     <div className='flex justify-center gap-x-8 mt-8 mb-8'>
       {choices.map(choice => (
-        <div key={choice.number} onClick={() => onClick(choice.name)} className={
-          choiceState.choice === choice.name ? "flex flex-col cursor-pointer border-dashed border-2 rounded-lg border-indigo-600" : "flex flex-col cursor-pointer hover:translate-y-2"
+        <div key={choice.number} onClick={() => onClick(choice.name, choice.number)} className={
+          choiceState.choice === choice.name ? "flex flex-col justify-end cursor-pointer border-dashed border-2 rounded-lg border-indigo-600" : "flex flex-col justify-end cursor-pointer hover:translate-y-2"
           }>
           <img src={choice.image} alt={choice.name}/>
-          <p>{choice.name}</p>
+          <p className='font-semibold text-xl pb-6' >{choice.name}</p>
         </div>
       ))}
     </div>
