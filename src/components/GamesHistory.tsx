@@ -56,9 +56,9 @@ const GamesHistory = () => {
                     </tr>
                   </thead>
                   <tbody>
-                  {games.map(game => (
-                                    <tr className="border-b dark:border-neutral-500">
-                                      <td className="whitespace-nowrap px-6 py-4 font-medium">{game.gameId}</td>
+                  {games.map((game, index) => (
+                                    <tr key={index} className="border-b dark:border-neutral-500">
+                                      <td className="whitespace-nowrap px-6 py-4 font-medium">{index + 1}</td>
                                       <td className="whitespace-nowrap px-6 py-4">{game.bet} tBNB</td>
                                       <td className="whitespace-nowrap px-6 py-4">{game.status}</td>
                                       <td className="whitespace-nowrap px-6 py-4">{game.receive} tBNB</td>

@@ -3,6 +3,7 @@ import './App.css';
 import Game from './components/Game';
 import Header from './components/Header';
 import GamesHistory from './components/GamesHistory';
+import Footer from './components/Footer';
 
 import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { WagmiConfig } from "wagmi";
@@ -16,6 +17,7 @@ function App() {
         <Header />
         <Game />
         <GamesHistory />
+        <Footer />
       </RainbowKitProvider>
     </WagmiConfig>
   );

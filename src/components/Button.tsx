@@ -2,7 +2,7 @@ import { FC } from "react";
 
 
 type TButton = {
-  disabled?: boolean,
+  disabled?: boolean | Error | null,
   title: string,
   onClick: any
 }
@@ -15,7 +15,7 @@ const Button: FC<TButton> = ({disabled, title, onClick}) => {
   }
 
   return(
-    <button disabled={disabled ? true : false} onClick={buttonHandle} className={"mx-auto py-2 px-4 mt-4 rounded-lg bg-indigo-600 text-white disabled:opacity-50"}>{title}</button>
+    <button disabled={disabled ? true : false} onClick={buttonHandle} className={"mx-auto py-2 px-4 mt-4 rounded-lg bg-indigo-600 hover:bg-indigo-700  text-white disabled:opacity-50"}>{title}</button>
   )
 };
 
