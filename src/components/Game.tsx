@@ -3,9 +3,11 @@ import { useEffect, useState } from 'react';
 import { useAccount, useConnect } from 'wagmi';
 import Button from "./Button";
 import { contract } from "./services/web3config";
-import { ethers } from 'ethers';
+import { ethers, BigNumberish } from 'ethers';
 
-import { useContractWrite, usePrepareContractWrite } from 'wagmi'
+import { useContractWrite, usePrepareContractWrite, useContractEvent } from 'wagmi'
+import Modal from "./Modal";
+import Result from "./Result";
 
 const initialState = {
   choice: "Камень",
@@ -13,12 +15,23 @@ const initialState = {
   bet: 0.0001
 };
 
+export type TGetResult = {
+  player?: string,
+  status: number,
+  received: number
+}
+
 const Game = () => {
 
   const { address, isConnected } = useAccount();
   const { connect, connectors } = useConnect()
 
   const [choiceState, setChoice] = useState(initialState);
+  const [gameResult, setGameResult] = useState<TGetResult | null>(null);
+
+  const handleModal = () => {
+    setGameResult(null);
+  };
   
   const handleChoice = (userChoice: string, choiceNumber: number) => {
     setChoice((prevState) => ({
@@ -42,14 +55,28 @@ const Game = () => {
       value: ethers.utils.parseEther(choiceState.bet.toString())
     }
   })
-  const { data, isLoading, isSuccess, write } = useContractWrite(config)
+  const { data, isLoading, isSuccess, write } = useContractWrite(config);
+
+  useContractEvent({
+    address: contract.address as `0x${string}`,
+    abi: contract.abi,
+    eventName: 'GameOver',
+    listener(player, status, received) {
+      setGameResult({
+        player: player as string,
+        status: status as number,
+        received: Number(ethers.utils.formatEther(received as BigNumberish))
+      })
+    },
+  })
 
 
   useEffect(() => {
     console.log(data)
     console.log(isLoading)
     console.log(isSuccess)
-  }, [data, isLoading, isSuccess])
+    console.log(gameResult)
+  }, [data, isLoading, isSuccess, gameResult])
 
 
   return(
@@ -68,6 +95,12 @@ const Game = () => {
           )}
         </form>
       </div>
+      
+      {gameResult ? (
+        <Modal title="Результат" onClose={handleModal} >
+              <Result status={gameResult.status} received={gameResult.received}/>
+        </Modal>
+      ) : null}
     </main>
   )
 };

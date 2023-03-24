@@ -37,7 +37,7 @@ const ChooseGame: FC<TChooseGame> = ({onClick, choiceState}) => {
     <div className='flex justify-center gap-x-8 mt-8 mb-8'>
       {choices.map(choice => (
         <div key={choice.number} onClick={() => onClick(choice.name, choice.number)} className={
-          choiceState.choice === choice.name ? "flex flex-col justify-end cursor-pointer border-dashed border-2 rounded-lg border-indigo-600" : "flex flex-col justify-end cursor-pointer hover:translate-y-2"
+          choiceState.choice === choice.name ? "flex flex-col justify-end cursor-pointer border-dashed border-2 rounded-lg border-indigo-600" : "flex flex-col justify-end cursor-pointer hover:-translate-y-2"
           }>
           <img src={choice.image} alt={choice.name}/>
           <p className='font-semibold text-xl pb-6' >{choice.name}</p>
