@@ -1,4 +1,9 @@
+import { useEffect, useState } from 'react';
+import { useContractRead } from 'wagmi';
+import { contract } from './services/web3config';
+import { ethers, BigNumberish } from 'ethers';
 
+import { getStatus, getChoice } from './services/utils';
 
 const games = [
   {
@@ -33,8 +38,32 @@ const games = [
   }
 ]
 
+type TGame = {
+  bet: any,
+  playerChoice: any,
+  contractChoice: any,
+  status: number,
+  received: any
+};
 
 const GamesHistory = () => {
+
+  const [games, setGames] = useState<TGame[] | undefined>();
+
+  const { data, isLoading, isError } = useContractRead({
+    address: contract.address as `0x${string}`,
+    abi: contract.abi,
+    functionName: 'getGames()',
+    watch: true,
+  })
+
+  useEffect(() => {
+    setGames(data as TGame[])
+    console.log(games)
+
+  }, [games, data])
+
+
   return(
     <section>
       
@@ -50,19 +79,21 @@ const GamesHistory = () => {
                     <tr>
                       <th scope="col" className="px-6 py-4">#</th>
                       <th scope="col" className="px-6 py-4">Ставка</th>
+                      <th scope="col" className="px-6 py-4">Игрок</th>
+                      <th scope="col" className="px-6 py-4">Контракт</th>
                       <th scope="col" className="px-6 py-4">Статус</th>
-                      <th scope="col" className="px-6 py-4">Получено</th>
-                      <th scope="col" className="px-6 py-4">Транзакция</th>
+                      <th scope="col" className="px-6 py-4">Выигрыш</th>
                     </tr>
                   </thead>
                   <tbody>
-                  {games.map((game, index) => (
+                  {games?.map((game, index) => (
                                     <tr key={index} className="border-b dark:border-neutral-500">
                                       <td className="whitespace-nowrap px-6 py-4 font-medium">{index + 1}</td>
-                                      <td className="whitespace-nowrap px-6 py-4">{game.bet} tBNB</td>
-                                      <td className="whitespace-nowrap px-6 py-4">{game.status}</td>
-                                      <td className="whitespace-nowrap px-6 py-4">{game.receive} tBNB</td>
-                                      <td className="whitespace-nowrap px-6 py-4">{game.txhash}</td>
+                                      <td className="whitespace-nowrap px-6 py-4">{Number(ethers.utils.formatEther(game.bet as BigNumberish))} tBNB</td>
+                                      <td className="whitespace-nowrap px-6 py-4">{getChoice(game.playerChoice.toNumber())?.name}</td>
+                                      <td className="whitespace-nowrap px-6 py-4">{getChoice(game.contractChoice.toNumber())?.name}</td>
+                                      <td className="whitespace-nowrap px-6 py-4">{getStatus(game.status)}</td>
+                                      <td className="whitespace-nowrap px-6 py-4">{Number(ethers.utils.formatEther(game.received as BigNumberish))} tBNB</td>
                                     </tr>
                   ))}
                   </tbody>

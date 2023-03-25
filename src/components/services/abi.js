@@ -67,19 +67,6 @@ export const contractAbi = [
 		"type": "event"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint8",
-				"name": "_option",
-				"type": "uint8"
-			}
-		],
-		"name": "playGame",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -104,14 +91,43 @@ export const contractAbi = [
 	},
 	{
 		"inputs": [],
-		"name": "withdraw",
-		"outputs": [],
-		"stateMutability": "nonpayable",
+		"name": "getGames",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "bet",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "playerChoice",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "contractChoice",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum RockScissorsPapper.StatusEnum",
+						"name": "status",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "received",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct RockScissorsPapper.Game[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
 		"type": "function"
-	},
-	{
-		"stateMutability": "payable",
-		"type": "receive"
 	},
 	{
 		"inputs": [],
@@ -125,5 +141,29 @@ export const contractAbi = [
 		],
 		"stateMutability": "view",
 		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "_option",
+				"type": "uint8"
+			}
+		],
+		"name": "playGame",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "withdraw",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"stateMutability": "payable",
+		"type": "receive"
 	}
 ]

@@ -74,13 +74,13 @@ const Game = () => {
   })
 
 
-  useEffect(() => {
-    console.log(data)
-    console.log(isLoading)
-    console.log(isSuccess)
-    console.log(gameResult)
-    console.log(choiceState)
-  }, [data, isLoading, isSuccess, gameResult, choiceState])
+  // useEffect(() => {
+  //   console.log(data)
+  //   console.log(isLoading)
+  //   console.log(isSuccess)
+  //   console.log(gameResult)
+  //   console.log(choiceState)
+  // }, [data, isLoading, isSuccess, gameResult, choiceState])
 
 
   return(

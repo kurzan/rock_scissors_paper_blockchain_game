@@ -6,10 +6,10 @@ import scirImage from '../../images/sciss.png';
 export const getStatus = (stausNum: number | undefined) => {
   switch (stausNum) {
     case 0:
-      return "Вы выиграли 🤑"
+      return "Победа 🤑"
     
     case 1:
-      return "Вы проиграли 💩"
+      return "Проигрыш 💩"
 
     case 2:
       return "Ничья 😐"  
