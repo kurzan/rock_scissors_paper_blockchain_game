@@ -43,14 +43,3 @@ const Modal:FC<TModal> = ({children, title, onClose}) => {
 };
 
 export default Modal;
-
-
-
-// .overlay {
-//   position: fixed;
-//   top: 0;
-//   width: 100%;
-//   height: 100%;
-//   background-color: rgba(0, 0, 0, 0.6);
-//   z-index: 2;
-// }

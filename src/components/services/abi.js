@@ -24,6 +24,12 @@ export const contractAbi = [
 				"internalType": "uint256",
 				"name": "received",
 				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "contractChoice",
+				"type": "uint256"
 			}
 		],
 		"name": "GameOver",
@@ -61,6 +67,19 @@ export const contractAbi = [
 		"type": "event"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "_option",
+				"type": "uint8"
+			}
+		],
+		"name": "playGame",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -85,6 +104,17 @@ export const contractAbi = [
 	},
 	{
 		"inputs": [],
+		"name": "withdraw",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"stateMutability": "payable",
+		"type": "receive"
+	},
+	{
+		"inputs": [],
 		"name": "owner",
 		"outputs": [
 			{
@@ -95,29 +125,5 @@ export const contractAbi = [
 		],
 		"stateMutability": "view",
 		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint8",
-				"name": "_option",
-				"type": "uint8"
-			}
-		],
-		"name": "playGame",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "withdraw",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"stateMutability": "payable",
-		"type": "receive"
 	}
 ]

@@ -5,7 +5,7 @@ import { bscTestnet } from 'wagmi/chains';
 import { publicProvider } from "wagmi/providers/public";
 import { contractAbi } from "./abi";
 
-const CONTRACT_ADDRESS = "0xfBc68f89B2ec75600f7B07b7Ef3391D9BF24b848";
+const CONTRACT_ADDRESS = "0x9F1DEF22Da15ff0cE3fef5cbc331AedCf309c0B0";
 
 export const { chains, provider, webSocketProvider } = configureChains(
   [
