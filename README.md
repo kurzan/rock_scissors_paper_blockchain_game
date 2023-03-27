@@ -1,46 +1,47 @@
-# Getting Started with Create React App
+![image](https://user-images.githubusercontent.com/112556583/227868344-428ee955-f7ad-4b84-897d-c21b40d162d4.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Web-3.0 игра "Камень ножницы бумага"
 
-## Available Scripts
+### Ссылка на деплой 
 
-In the project directory, you can run:
+https://kurzan.github.io/rock_scissors_paper_blockchain_game/
 
-### `npm start`
+### Описание
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Приложение позволяет играть в "камень-можницы бумага" против смарт-контрака, работающего на Binance Smart Chain Testen. Игра идет на тестовую криптовалюту tBNB, которую можно получить бесплатно в тестовых кранах, например https://testnet.bnbchain.org/faucet-smart. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Для начала игры необходимо подключить свой криптовалютный кошелек, выбрать ход и указать сумму ставки. Минимальная сумма ставки 0,0001 tBNB, максимальная ставка не может превышать сумму баланса контракта, разделенную на два. 
 
-### `npm test`
+### Правила игры
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Камень бьет ножницы</br>
+Ножницы режут бумагу</br>
+Бумага покрывает камень</br>
 
-### `npm run build`
+В случае победы игрок получает х2 от суммы ставки, в случае ничьи получает назад свою ставку, в случае проигрыша ничего не получает, а сумма ставки уходит на баланс контракта.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Процесс игры
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<b>1. Подключаем кошелек, делам ход и указываем сумму ставки. Нажимаем на кнопку "Начать игру" и подтверждаем транзакцию </b>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![image](https://user-images.githubusercontent.com/112556583/227874054-f9c729f0-f98c-435b-a74b-e3b8cabd282f.png)
 
-### `npm run eject`
+<b>2. В появившемся окне ожидаем ход смарт-контрака </b>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![image](https://user-images.githubusercontent.com/112556583/227874314-74f9d80b-579f-4fa0-a3f6-457914d5435f.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<b>3. Получаем результат игры и ссылку на транзакцию в Bsc Testnet Scan </b>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![image](https://user-images.githubusercontent.com/112556583/227874521-fb920520-bfbe-4509-9219-09d82ba60c1f.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<b> 4. Смотрим историю игр </b>
 
-## Learn More
+![image](https://user-images.githubusercontent.com/112556583/227873236-0eafb276-994a-44cb-9ace-a7bcc46faf38.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Установка и запуск проект
+
+<b>npm install</br>
+<b>npm run start</br>
+
+
