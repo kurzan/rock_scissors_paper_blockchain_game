@@ -2,41 +2,8 @@ import { useEffect, useState } from 'react';
 import { useContractRead } from 'wagmi';
 import { contract } from './services/web3config';
 import { ethers, BigNumberish } from 'ethers';
-
 import { getStatus, getChoice } from './services/utils';
 
-const games = [
-  {
-    gameId: 1,
-    playerAddress: "0xfBc68f89B2ec75600f7B07b7Ef3391D9BF24b848",
-    bet: 0.001,
-    playerChoice: 1,
-    contractChoice: 2,
-    receive: 0.002, 
-    status: "WIN",
-    txhash: "0xfBc68f89B2ec75600f7B07b7Ef3391D9BF24b848"
-  },
-  {
-    gameId: 1,
-    playerAddress: "0xfBc68f89B2ec75600f7B07b7Ef3391D9BF24b848",
-    bet: 0.001,
-    playerChoice: 1,
-    contractChoice: 2,
-    receive: 0.002, 
-    status: "WIN",
-    txhash: "0xfBc68f89B2ec75600f7B07b7Ef3391D9BF24b848"
-  },
-  {
-    gameId: 1,
-    playerAddress: "0xfBc68f89B2ec75600f7B07b7Ef3391D9BF24b848",
-    bet: 0.001,
-    playerChoice: 1,
-    contractChoice: 2,
-    receive: 0.002, 
-    status: "WIN",
-    txhash: "0xfBc68f89B2ec75600f7B07b7Ef3391D9BF24b848"
-  }
-]
 
 type TGame = {
   bet: any,
@@ -50,7 +17,7 @@ const GamesHistory = () => {
 
   const [games, setGames] = useState<TGame[] | undefined>();
 
-  const { data, isLoading, isError } = useContractRead({
+  const { data } = useContractRead({
     address: contract.address as `0x${string}`,
     abi: contract.abi,
     functionName: 'getGames()',
@@ -59,7 +26,6 @@ const GamesHistory = () => {
 
   useEffect(() => {
     setGames(data as TGame[])
-    console.log(games)
 
   }, [games, data])
 

@@ -23,8 +23,6 @@ const Result:FC<TResult> = ({status, received, contractChoice, hash, userChoice}
         <p>VS.</p>
 
         <div className="flex flex-col items-center w-[140px] h-[140px]">
-
-
           <p>Выбор контракта</p>
           {contractChoice ? (
             <>
@@ -50,13 +48,8 @@ const Result:FC<TResult> = ({status, received, contractChoice, hash, userChoice}
             </div>
           )
           }
-
-
         </div>
-
-
       </div>
-
       <p className="text-3xl font-semibold mt-8 ">{getStatus(status)}</p>
       {received ? <p className="text-xl font-semibold mt-2 ">Получено: {received} tBNB</p> : null}
       <a className="mt-8 underline underline-offset-1" target="_blank" rel="noreferrer" href={`https://testnet.bscscan.com/tx/${hash}`}>Транзакция на BscScan</a>

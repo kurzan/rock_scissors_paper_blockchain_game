@@ -1,5 +1,5 @@
 import ChooseGame from "./ChooseGame";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useAccount, useConnect } from 'wagmi';
 import Button from "./Button";
 import { contract } from "./services/web3config";
@@ -73,16 +73,6 @@ const Game = () => {
     },
   })
 
-
-  // useEffect(() => {
-  //   console.log(data)
-  //   console.log(isLoading)
-  //   console.log(isSuccess)
-  //   console.log(gameResult)
-  //   console.log(choiceState)
-  // }, [data, isLoading, isSuccess, gameResult, choiceState])
-
-
   return(
     <main className="bg-neutral-50 min-h-min pt-6 pb-12 px-2" >
       <div className="container mx-auto text-center">
@@ -93,9 +83,9 @@ const Game = () => {
         <form action="" className="mx-auto flex flex-col justify-items-center">
           <label className="mt-2" htmlFor="bet" >Ставка: </label>
           <input onChange={e => setBet(Number(e.target.value))}  id="bet" className="mx-auto p-2 rounded-lg border-solid border-2 border-gray-600" type="number" placeholder="0.0001" min="0.0001" step="0.0001"  />
-          {isConnected ? <Button onClick={write} disabled={isLoading || error} title={isLoading ? "Подтвердите действие" : "Начать игру"} /> : <Button onClick={() => connect({ connector: connectors[2] })} title="Подключить MetaMask" />}
+          {isConnected ? <Button onClick={write} disabled={isLoading || error} title={isLoading ? "Подтвердите действие" : "Начать игру"} /> : <Button onClick={() => connect({ connector: connectors[2] })} title="Подключить кошелек" />}
           {error && (
-            <div>An error occurred preparing the transaction: {error.message}</div>
+            <div>Возможно введена некоректная сумма, попробуйте сделать другую ставку</div>
           )}
         </form>
       </div>

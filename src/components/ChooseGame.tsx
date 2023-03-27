@@ -1,7 +1,7 @@
 import rockImage from '../images/rock.png';
 import papperImage from '../images/papper.png';
 import scirImage from '../images/sciss.png';
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 
 const choices = [
   {
