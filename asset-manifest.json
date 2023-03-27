@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/rock_scissors_paper_blockchain_game/static/css/main.63da5a67.css",
-    "main.js": "/rock_scissors_paper_blockchain_game/static/js/main.c1f8738b.js",
+    "main.css": "/rock_scissors_paper_blockchain_game/static/css/main.f82f0e49.css",
+    "main.js": "/rock_scissors_paper_blockchain_game/static/js/main.0ec6be53.js",
     "static/js/689.71d33bf6.chunk.js": "/rock_scissors_paper_blockchain_game/static/js/689.71d33bf6.chunk.js",
     "static/js/820.f317b2ac.chunk.js": "/rock_scissors_paper_blockchain_game/static/js/820.f317b2ac.chunk.js",
     "static/js/248.48826cb2.chunk.js": "/rock_scissors_paper_blockchain_game/static/js/248.48826cb2.chunk.js",
@@ -37,8 +37,8 @@
     "static/media/rpclogo.png": "/rock_scissors_paper_blockchain_game/static/media/rpclogo.3c2ec41716b3563fa6f2.png",
     "static/media/rock.png": "/rock_scissors_paper_blockchain_game/static/media/rock.2e0d1573ef756d260c51.png",
     "index.html": "/rock_scissors_paper_blockchain_game/index.html",
-    "main.63da5a67.css.map": "/rock_scissors_paper_blockchain_game/static/css/main.63da5a67.css.map",
-    "main.c1f8738b.js.map": "/rock_scissors_paper_blockchain_game/static/js/main.c1f8738b.js.map",
+    "main.f82f0e49.css.map": "/rock_scissors_paper_blockchain_game/static/css/main.f82f0e49.css.map",
+    "main.0ec6be53.js.map": "/rock_scissors_paper_blockchain_game/static/js/main.0ec6be53.js.map",
     "689.71d33bf6.chunk.js.map": "/rock_scissors_paper_blockchain_game/static/js/689.71d33bf6.chunk.js.map",
     "820.f317b2ac.chunk.js.map": "/rock_scissors_paper_blockchain_game/static/js/820.f317b2ac.chunk.js.map",
     "248.48826cb2.chunk.js.map": "/rock_scissors_paper_blockchain_game/static/js/248.48826cb2.chunk.js.map",
@@ -70,7 +70,7 @@
     "419.967c77da.chunk.js.map": "/rock_scissors_paper_blockchain_game/static/js/419.967c77da.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.63da5a67.css",
-    "static/js/main.c1f8738b.js"
+    "static/css/main.f82f0e49.css",
+    "static/js/main.0ec6be53.js"
   ]
 }
