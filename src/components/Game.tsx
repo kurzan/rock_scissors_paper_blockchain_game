@@ -5,7 +5,7 @@ import Button from "./Button";
 import { contract } from "./services/web3config";
 import { ethers, BigNumberish } from 'ethers';
 
-import { useContractWrite, usePrepareContractWrite, useContractEvent } from 'wagmi'
+import { useContractWrite, usePrepareContractWrite, useContractEvent, useBalance } from 'wagmi'
 import Modal from "./Modal";
 import Result from "./Result";
 
@@ -41,6 +41,10 @@ const Game = () => {
       ...prevState, bet: userBet
     }));
   };
+
+  const { data: contractBalance} = useBalance({
+    address:contract.address as `0x${string}`,
+  })
 
   const { config, error } = usePrepareContractWrite({
     address: contract.address as `0x${string}`,
@@ -83,9 +87,10 @@ const Game = () => {
         <form action="" className="mx-auto flex flex-col justify-items-center">
           <label className="mt-2" htmlFor="bet" >Ставка: </label>
           <input onChange={e => setBet(Number(e.target.value))}  id="bet" className="mx-auto p-2 rounded-lg border-solid border-2 border-gray-600" type="number" placeholder="0.0001" min="0.0001" step="0.0001"  />
+          {contractBalance ? <p className="text-gray-500" >Баланс контракта: {contractBalance?.formatted} {contractBalance?.symbol}</p> : null}
           {isConnected ? <Button onClick={write} disabled={isLoading || error} title={isLoading ? "Подтвердите действие" : "Начать игру"} /> : <Button onClick={() => connect({ connector: connectors[2] })} title="Подключить кошелек" />}
           {error && (
-            <div>Возможно введена некоректная сумма, попробуйте сделать другую ставку</div>
+            <div>Минимальная ставка 0,0001 tBNB и должна быть в два раза меньше, чем баланс контракта.</div>
           )}
         </form>
       </div>
